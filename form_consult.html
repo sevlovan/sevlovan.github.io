@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Оставить заявку | DataEdge AI</title>
+    <title>Оставить заявку | IT SIMS</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,7 +27,7 @@
 
         /* карточка формы */
         .form-card {
-            max-width: 560px;
+            max-width: 620px;
             width: 100%;
             background: white;
             border-radius: 36px;
@@ -37,7 +37,30 @@
             transition: transform 0.2s ease;
         }
 
-        /* кнопка назад */
+        /* шапка с логотипом и кнопкой назад */
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            color: #3b82f6;
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+        }
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -46,7 +69,6 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
-            margin-bottom: 28px;
             transition: color 0.2s;
         }
         .back-link i {
@@ -62,7 +84,7 @@
 
         /* заголовок */
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.01em;
             background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
@@ -70,6 +92,7 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 8px;
+            margin-top: 8px;
         }
         .sub {
             color: #475569;
@@ -95,7 +118,7 @@
             width: 24px;
             margin-right: 6px;
         }
-        input {
+        input, textarea {
             width: 100%;
             padding: 14px 18px;
             font-size: 1rem;
@@ -107,11 +130,15 @@
             outline: none;
             color: #0f172a;
         }
-        input:focus {
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        input:focus, textarea:focus {
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
         }
-        input::placeholder {
+        input::placeholder, textarea::placeholder {
             color: #94a3b8;
             font-weight: 400;
         }
@@ -187,17 +214,23 @@
                 padding: 28px 20px 36px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+            .logo {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="form-card">
-        <!-- Кнопка "Вернуться назад" -->
-        <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Вернуться назад
-        </a>
+        <!-- Верхняя панель: логотип + кнопка назад -->
+        <div class="form-header">
+            <div class="logo">IT<span>SIMS</span></div>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Вернуться назад
+            </a>
+        </div>
 
         <h1>Оставить заявку</h1>
         <div class="sub">Заполните форму — мы свяжемся с вами в ближайшее время</div>
@@ -218,6 +251,12 @@
                 <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
             </div>
 
+            <!-- НОВОЕ ПОЛЕ: Ваш запрос -->
+            <div class="input-group">
+                <label><i class="fas fa-comment-dots"></i> Ваш запрос</label>
+                <textarea id="message" name="message" placeholder="Опишите, какая услуга вам нужна: анализ процессов, интеграция ИИ-агентов, разработка приложений или другое..."></textarea>
+            </div>
+
             <button type="submit" class="submit-btn">
                 <i class="fas fa-paper-plane"></i> Отправить данные
             </button>
@@ -233,7 +272,7 @@
             <i class="fas fa-lock"></i> Ваши данные защищены. Нажимая «Отправить данные», вы соглашаетесь с <a href="#">политикой обработки данных</a>.
         </div>
         <footer>
-            DataEdge AI — аналитика и ИИ агенты
+            IT SIMS — аналитика и ИИ агенты
         </footer>
     </div>
 
@@ -243,10 +282,9 @@
             const successDiv = document.getElementById('successMessage');
             const errorDiv = document.getElementById('errorMessage');
 
-            // Функция валидации телефона (простая, но понятная)
             function validatePhone(phone) {
                 const digits = phone.replace(/[\s\-\(\)\+]/g, '');
-                const phoneRegex = /^[0-9]{10,15}$/; // минимум 10 цифр
+                const phoneRegex = /^[0-9]{10,15}$/;
                 return phoneRegex.test(digits);
             }
 
@@ -258,10 +296,15 @@
                 return name.trim().length >= 2;
             }
 
+            // поле запроса не обязательное, но если заполнено — проверим длину (опционально)
+            function validateMessage(msg) {
+                // можно не проверять, но ограничим спам: максимум 2000 символов
+                return msg.length <= 2000;
+            }
+
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                // Скрываем старые сообщения
                 successDiv.style.display = 'none';
                 errorDiv.style.display = 'none';
                 errorDiv.innerHTML = '';
@@ -269,6 +312,7 @@
                 const fullname = document.getElementById('fullname').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
 
                 let errors = [];
 
@@ -281,6 +325,9 @@
                 if (!validateEmail(email)) {
                     errors.push('• Введите корректный email (например, name@domain.ru)');
                 }
+                if (!validateMessage(message)) {
+                    errors.push('• Запрос не должен превышать 2000 символов');
+                }
 
                 if (errors.length > 0) {
                     errorDiv.innerHTML = errors.join('<br>');
@@ -288,24 +335,21 @@
                     return;
                 }
 
-                // Имитация отправки данных (в реальности здесь был бы fetch)
-                // Просто показываем успех через 400 мс, имитируя сетевой запрос
                 const btn = form.querySelector('.submit-btn');
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
                 btn.disabled = true;
 
                 setTimeout(() => {
-                    // Успешная отправка (демо-режим, без реального бэкенда)
+                    // Демо-отправка (имитация успеха)
                     successDiv.style.display = 'flex';
-                    form.reset();   // очищаем поля
+                    form.reset();
+
                     btn.innerHTML = originalText;
                     btn.disabled = false;
 
-                    // Дополнительно можно вывести в консоль (для отладки)
-                    console.log('Заявка отправлена (демо):', { fullname, phone, email });
-                    
-                    // Скрыть сообщение об успехе через 6 секунд
+                    console.log('Заявка отправлена (демо):', { fullname, phone, email, message });
+
                     setTimeout(() => {
                         successDiv.style.display = 'none';
                     }, 6000);
