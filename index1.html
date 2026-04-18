@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ITSIMS | Аналитика и ИИ решения</title>
+    <title>Аналитика и ИИ решения | Оптимизация бизнес-процессов</title>
+    <!-- Google Fonts & Simple Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -27,10 +28,11 @@
             padding: 0 24px;
         }
 
+        /* Header & navigation */
         header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -58,6 +60,8 @@
         .logo span {
             color: #3b82f6;
             background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
         }
 
         .nav-links {
@@ -86,14 +90,13 @@
             color: #1e293b;
             cursor: pointer;
             transition: all 0.2s;
-            text-decoration: none;
-            display: inline-block;
         }
         .btn-outline-light:hover {
             border-color: #3b82f6;
             background: #f0f4fe;
         }
 
+        /* hero */
         .hero {
             padding: 80px 0 64px;
             background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
@@ -147,8 +150,7 @@
             cursor: pointer;
             transition: background 0.2s;
             font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
         }
         .btn-primary:hover {
             background: #0f1a44;
@@ -162,8 +164,6 @@
             color: #1e293b;
             transition: all 0.2s;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
         }
         .btn-secondary:hover {
             border-color: #3b82f6;
@@ -186,6 +186,7 @@
             color: #1e2a5e;
         }
 
+        /* services section */
         .section {
             padding: 80px 0;
         }
@@ -251,6 +252,7 @@
             transform: translateX(5px);
         }
 
+        /* approach or data optimization extra */
         .insight-block {
             background: linear-gradient(105deg, #f1f5f9 0%, #ffffff 100%);
             border-radius: 48px;
@@ -285,7 +287,7 @@
             color: #2563eb;
             font-size: 1.2rem;
         }
-
+        /* CTA */
         .cta {
             background: #0f172a;
             border-radius: 48px;
@@ -311,10 +313,7 @@
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
         }
-
         footer {
             padding: 48px 0 32px;
             border-top: 1px solid #e2e8f0;
@@ -336,19 +335,21 @@
 <header>
     <div class="container">
         <div class="navbar">
-            <div class="logo">IT<span>SIMS</span></div>
+            <div class="logo">IT<span>SIMS</span> </div>
             <ul class="nav-links">
-                <li><a href="index.html">Главная</a></li>
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#approach">Подход</a></li>
-                <li><a href="request.html">Контакты</a></li>
+                <li><a href="#contact">Контакты</a></li>
             </ul>
-            <a href="request.html" class="btn-outline-light">Консультация</a>
+	    <a href="form_consult.html" style="text-decoration: none;">
+		 <button class="btn-outline-light" id="consultBtn">Консультация</button>
+	    </a>
         </div>
     </div>
 </header>
 
 <main>
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
@@ -356,8 +357,8 @@
                 <h1>Системные решения для бизнес-эффективности</h1>
                 <p>Исследование и оптимизация процессов, интеграция ИИ, построение платформ данных — всё для масштабирования вашего бизнеса.</p>
                 <div class="hero-buttons">
-                    <a href="request.html" class="btn-primary">Начать проект</a>
-                    <a href="#services" class="btn-secondary">Подробнее об услугах</a>
+                    <button class="btn-primary" id="getStartedBtn">Начать проект</button>
+                    <button class="btn-secondary" id="learnMoreBtn">Подробнее об услугах</button>
                 </div>
             </div>
             <div class="hero-stats">
@@ -377,41 +378,48 @@
         </div>
     </section>
 
+    <!-- Services Section : 6 ключевых направлений из вашего файла -->
     <div class="container" id="services">
         <div class="section">
             <h2 class="section-title">Ключевые направления</h2>
             <div class="section-sub">Комплексная экспертиза — от анализа процессов до внедрения интеллектуальных агентов</div>
             <div class="services-grid">
+                <!-- 1. Анализ процессов -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Анализ процессов</h3>
                     <p>Исследование и оптимизация бизнес-процессов для повышения эффективности. Выявляем узкие места, сокращаем издержки.</p>
                     <a href="process-analysis.html" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <!-- 2. Систематизация данных -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-database"></i></div>
                     <h3>Систематизация данных</h3>
                     <p>Организация и структурирование данных для удобного анализа и использования. Единое окно аналитики.</p>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <!-- 3. Построение интегрированных платформ -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-layer-group"></i></div>
                     <h3>Интегрированные платформы</h3>
                     <p>Создание комплексных решений для управления данными и их анализа. Data Mesh, озёра данных, витрины.</p>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <!-- 4. Разработка приложений -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Разработка приложений</h3>
                     <p>Создание программных решений, включая использование ИИ-агентов. Кастомные веб- и мобильные приложения.</p>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <!-- 5. Интеграция с ИИ агентами -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-robot"></i></div>
                     <h3>Интеграция с ИИ агентами</h3>
                     <p>Внедрение ИИ технологий в существующие приложения и системы. Автоматизация рутины, умные ассистенты.</p>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <!-- 6. Оптимизация данных -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-filter"></i></div>
                     <h3>Оптимизация данных</h3>
@@ -422,6 +430,7 @@
         </div>
     </div>
 
+    <!-- Дополнительный блок: как мы работаем + преимущества -->
     <div class="container" id="approach">
         <div class="insight-block">
             <div class="flex-two">
@@ -445,6 +454,7 @@
         </div>
     </div>
 
+    <!-- Короткий блок про качество данных (дополнение к оптимизации) -->
     <div class="container">
         <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; margin: 24px 0 48px;">
             <div style="background: white; border-radius: 24px; padding: 24px; flex:1; border:1px solid #eef2f6;">
@@ -465,12 +475,13 @@
         </div>
     </div>
 
+    <!-- Contact / CTA блок -->
     <div class="container" id="contact">
         <div class="cta">
             <h2>Готовы трансформировать ваш бизнес?</h2>
             <p>Обсудим, как анализ процессов, интегрированные платформы и ИИ-агенты выведут вашу компанию на новый уровень.</p>
-            <a href="request.html" class="btn-cta">Связаться с экспертом</a>
-            <div style="margin-top: 32px; font-size: 0.9rem;">✉️ hello@itsims.ai  |  📞 +7 (495) 123-45-67</div>
+            <button class="btn-cta" id="ctaButton">Связаться с экспертом</button>
+            <div style="margin-top: 32px; font-size: 0.9rem;">✉️ hello@dataedge.ai  |  📞 +7 (495) 123-45-67</div>
         </div>
     </div>
 </main>
@@ -481,5 +492,48 @@
         <p style="margin-top: 12px; font-size: 0.8rem;"><i class="fas fa-cogs"></i> Систематизация данных | Разработка приложений | Интеграция с ИИ</p>
     </div>
 </footer>
+
+<script>
+    // Простые интерактивные демонстрации: модальное окно (alert с сообщением о заявке)
+    function showRequestModal(serviceName = "консультации") {
+        alert(`📬 Спасибо за интерес к ${serviceName}! Наш менеджер свяжется с вами в ближайшее время.\n\n(демонстрационный режим — форма обратной связи может быть интегрирована по требованию)`);
+    }
+
+    // Кнопки
+    document.getElementById('getStartedBtn')?.addEventListener('click', () => showRequestModal('запуску проекта'));
+    document.getElementById('learnMoreBtn')?.addEventListener('click', () => {
+        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('ctaButton')?.addEventListener('click', () => showRequestModal('услугам ITSIMS'));
+
+    // Добавляем обработчики для карточек услуг (демо-заявка на каждое направление)
+    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceTitles = [
+        "анализу процессов", "систематизации данных", "интегрированным платформам",
+        "разработке приложений", "интеграции с ИИ агентами", "оптимизации данных"
+    ];
+    serviceCards.forEach((card, idx) => {
+        const link = card.querySelector('.service-link');
+        if (link) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const title = serviceTitles[idx] || "услуге";
+                showRequestModal(title);
+            });
+        }
+        // также на карточку можно добавить эффект, но оставляем чистым
+    });
+
+    // Дополнительно: кнопки hero и навигация по якорям
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if(target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
 </body>
 </html>
+```

@@ -26,6 +26,7 @@
             padding: 0 24px;
         }
 
+        /* Header */
         header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
@@ -92,6 +93,7 @@
             color: #1e2a5e;
         }
 
+        /* Hero section */
         .service-hero {
             background: linear-gradient(135deg, #1e2a5e 0%, #2d3a6e 100%);
             padding: 64px 0;
@@ -108,6 +110,7 @@
             max-width: 700px;
         }
 
+        /* breadcrumbs */
         .breadcrumb {
             margin-bottom: 24px;
             font-size: 0.85rem;
@@ -120,6 +123,7 @@
             color: white;
         }
 
+        /* Основной контент */
         .section {
             padding: 64px 0;
             border-bottom: 1px solid #eef2f6;
@@ -138,6 +142,7 @@
             padding-left: 20px;
         }
 
+        /* Архитектурная схема Archimate (по мотивам стр. 8 PDF) */
         .archimate-grid {
             background: #f1f5f9;
             border-radius: 32px;
@@ -194,6 +199,7 @@
         .application-layer .layer-label { background: #dcfce7; color: #166534; }
         .technology-layer .layer-label { background: #fef3c7; color: #92400e; }
 
+        /* Три уровня декомпозиции */
         .decomp-grid {
             display: flex;
             flex-wrap: wrap;
@@ -223,6 +229,7 @@
             margin-bottom: 16px;
         }
 
+        /* Карточки нотаций */
         .notations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -254,6 +261,7 @@
             color: #64748b;
         }
 
+        /* Опыт из PDF */
         .experience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -292,6 +300,7 @@
             color: #10b981;
         }
 
+        /* Цитата */
         .quote-block {
             background: linear-gradient(135deg, #f1f5f9, #ffffff);
             border-radius: 28px;
@@ -348,6 +357,7 @@
     </div>
 </header>
 
+<!-- Hero -->
 <section class="service-hero">
     <div class="container">
         <div class="breadcrumb">
@@ -360,6 +370,7 @@
 
 <main>
     <div class="container">
+        <!-- Архитектурная схема Archimate (по мотивам стр. 8 PDF) -->
         <div class="section">
             <h2 class="section-title">Архитектура бизнес-процессов</h2>
             <div class="section-sub">Многоуровневое описание с использованием нотации Archimate (опыт внедрения в ГК ТЭК)</div>
@@ -401,6 +412,7 @@
             </div>
         </div>
 
+        <!-- 3 уровня декомпозиции -->
         <div class="section">
             <h2 class="section-title">Декомпозиция процессов</h2>
             <div class="section-sub">Трёхуровневая модель описания инвестиционно-строительной деятельности</div>
@@ -433,6 +445,7 @@
             </div>
         </div>
 
+        <!-- Нотации (важный акцент) -->
         <div class="section" id="notations">
             <h2 class="section-title">Нотации моделирования</h2>
             <div class="section-sub">Работа с различными стандартами описания бизнес-процессов</div>
@@ -471,6 +484,7 @@
             </div>
         </div>
 
+        <!-- Личный опыт из PDF -->
         <div class="section" id="experience">
             <h2 class="section-title">Реализованные проекты</h2>
             <div class="section-sub">Опыт внедрения в государственной корпорации — лидере ТЭК</div>
@@ -487,7 +501,7 @@
                 </div>
                 <div class="exp-card">
                     <i class="fas fa-microchip"></i>
-                    <h3>СУИД</h3>
+                    <h3>СУИД (Система управления инженерными данными)</h3>
                     <p>Руководство внедрением. Анализ рынка, выбор решения, разработка ТЗ на два модуля: работа с BIM и электронный документооборот.</p>
                 </div>
                 <div class="exp-card">
@@ -502,12 +516,14 @@
                 </div>
             </div>
 
+            <!-- Цитата / вывод -->
             <div class="quote-block">
                 <i class="fas fa-quote-left" style="font-size: 2rem; color:#3b82f6; opacity:0.5; margin-bottom:12px; display:block;"></i>
                 <p style="font-size:1.1rem; font-weight:500;">«Описание бизнес-процессов выполнено с трёхуровневой декомпозицией. Для 3-го уровня применены EPC-диаграммы. Анализ ИС проведён с использованием нотации Archimate. Разработаны целевые процессы, определены оптимизации — замена 2 неинтегрированных систем на 1 специализированное ПО.»</p>
                 <p style="margin-top:16px; color:#475569;">— из аттестационной работы, 2021 г.</p>
             </div>
 
+            <!-- Ключевые показатели -->
             <div style="background: #f8fafc; border-radius: 28px; padding: 32px; margin-top: 24px;">
                 <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;">
                     <div><span style="font-size: 2rem; font-weight:800; color:#1e2a5e;">3</span><br>уровня декомпозиции</div>
@@ -518,6 +534,7 @@
             </div>
         </div>
 
+        <!-- CTA -->
         <div style="text-align: center; padding: 48px 0 64px;">
             <a href="request.html" class="btn-primary"><i class="fas fa-pen-alt"></i> Обсудить анализ ваших процессов</a>
         </div>
