@@ -53,6 +53,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            cursor: pointer;
         }
         .logo span {
             color: #3b82f6;
@@ -120,44 +121,103 @@
             color: white;
         }
 
-        .section {
-            padding: 64px 0;
-            border-bottom: 1px solid #eef2f6;
+        /* навигация по нотациям */
+        .notation-nav {
+            background: white;
+            border-radius: 60px;
+            padding: 12px 24px;
+            margin: 32px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            border: 1px solid #eef2f6;
+            position: sticky;
+            top: 80px;
+            z-index: 90;
+            backdrop-filter: blur(4px);
         }
-        .section-title {
+        .notation-nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #475569;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .notation-nav a:hover {
+            color: #2563eb;
+        }
+
+        .notation-section {
+            scroll-margin-top: 100px;
+            margin-bottom: 64px;
+            background: white;
+            border-radius: 32px;
+            border: 1px solid #eef2f6;
+            overflow: hidden;
+        }
+        .notation-header {
+            background: #f8fafc;
+            padding: 24px 32px;
+            border-bottom: 1px solid #eef2f6;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .notation-icon {
+            font-size: 2.5rem;
+        }
+        .notation-header h2 {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 16px;
             color: #0f172a;
         }
-        .section-sub {
-            color: #475569;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            border-left: 4px solid #3b82f6;
-            padding-left: 20px;
+        .notation-desc {
+            padding: 28px 32px 20px 32px;
+            background: white;
+        }
+        .notation-desc p {
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .experience-block {
+            background: #f1f5f9;
+            margin: 0 32px 32px 32px;
+            border-radius: 24px;
+            padding: 24px;
+            border-left: 4px solid #2563eb;
+        }
+        .experience-block h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .experience-block h3 i {
+            color: #2563eb;
+        }
+        .visual-block {
+            margin: 0 32px 28px 32px;
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 24px;
         }
 
         .archimate-grid {
             background: #f1f5f9;
-            border-radius: 32px;
-            padding: 32px;
-            margin: 32px 0;
+            border-radius: 20px;
+            padding: 20px;
             overflow-x: auto;
-        }
-        .archimate-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
         .archimate-layers {
             display: flex;
             flex-direction: column;
             gap: 4px;
-            min-width: 600px;
+            min-width: 550px;
         }
         .layer {
             display: flex;
@@ -165,10 +225,10 @@
             overflow: hidden;
         }
         .layer-label {
-            width: 160px;
-            padding: 14px 16px;
+            width: 150px;
+            padding: 12px 14px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -178,126 +238,35 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            padding: 12px 16px;
+            padding: 10px 14px;
             background: white;
         }
         .archimate-element {
             background: #eef2ff;
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #1e40af;
-            border-left: 3px solid #3b82f6;
+            border-left: 2px solid #3b82f6;
         }
         .business-layer .layer-label { background: #dbeafe; color: #1e40af; }
         .application-layer .layer-label { background: #dcfce7; color: #166534; }
         .technology-layer .layer-label { background: #fef3c7; color: #92400e; }
 
-        .decomp-grid {
+        .decomp-mini {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
-            margin: 40px 0;
-        }
-        .decomp-card {
-            flex: 1;
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            border: 1px solid #eef2f6;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-        .decomp-level {
-            display: inline-block;
-            background: #1e2a5e;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        .decomp-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-        }
-
-        .notations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 32px 0;
-        }
-        .notation-card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #eef2f6;
-            transition: all 0.2s;
-        }
-        .notation-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
-        }
-        .notation-icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-        }
-        .notation-card h4 {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .notation-card p {
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
-        }
-        .exp-card {
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            border: 1px solid #eef2f6;
-        }
-        .exp-card i {
-            font-size: 2rem;
-            color: #2563eb;
-            margin-bottom: 16px;
-        }
-        .exp-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-
-        .metrics-list {
-            list-style: none;
+            gap: 16px;
             margin-top: 16px;
         }
-        .metrics-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .metrics-list i {
-            font-size: 0.9rem;
-            color: #10b981;
-        }
-
-        .quote-block {
-            background: linear-gradient(135deg, #f1f5f9, #ffffff);
-            border-radius: 28px;
-            padding: 40px;
-            margin: 32px 0;
-            border-left: 6px solid #3b82f6;
+        .decomp-mini-item {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
         }
 
         .btn-primary {
@@ -311,8 +280,6 @@
             text-decoration: none;
             font-weight: 600;
             transition: background 0.2s;
-            border: none;
-            cursor: pointer;
         }
         .btn-primary:hover {
             background: #0f1a44;
@@ -327,8 +294,9 @@
 
         @media (max-width: 768px) {
             .service-hero h1 { font-size: 2rem; }
-            .section-title { font-size: 1.5rem; }
-            .layer-label { width: 120px; font-size: 0.7rem; }
+            .notation-header h2 { font-size: 1.4rem; }
+            .notation-nav { top: 70px; gap: 16px; }
+            .layer-label { width: 110px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -336,11 +304,15 @@
 <header>
     <div class="container">
         <div class="navbar">
-            <div class="logo">IT<span>SIMS</span></div>
+            <div class="logo" onclick="location.href='index.html'">IT<span>SIMS</span></div>
             <ul class="nav-links">
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="#experience">Опыт</a></li>
-                <li><a href="#notations">Нотации</a></li>
+                <li><a href="#archimate">Archimate</a></li>
+                <li><a href="#epc">EPC</a></li>
+                <li><a href="#bpmn">BPMN</a></li>
+                <li><a href="#idef0">IDEF0</a></li>
+                <li><a href="#uml">UML</a></li>
+                <li><a href="#dfd">DFD</a></li>
                 <li><a href="request.html">Контакты</a></li>
             </ul>
             <a href="request.html" class="back-link"><i class="fas fa-paper-plane"></i> Заявка</a>
@@ -354,20 +326,33 @@
             <a href="index.html">Главная</a> / <span style="color:white">Анализ процессов</span>
         </div>
         <h1>Анализ бизнес-процессов</h1>
-        <p>Исследование и оптимизация бизнес-процессов для повышения эффективности. Выявляем узкие места, сокращаем издержки, внедряем лучшие практики моделирования.</p>
+        <p>Исследование и оптимизация бизнес-процессов для повышения эффективности. Выявляем узкие места, сокращаем издержки, работаем с ведущими нотациями моделирования.</p>
     </div>
 </section>
 
-<main>
-    <div class="container">
-        <div class="section">
-            <h2 class="section-title">Архитектура бизнес-процессов</h2>
-            <div class="section-sub">Многоуровневое описание с использованием нотации Archimate (опыт внедрения в ГК ТЭК)</div>
-            
+<div class="container">
+    <div class="notation-nav">
+        <a href="#archimate">Archimate</a>
+        <a href="#epc">EPC</a>
+        <a href="#bpmn">BPMN 2.0</a>
+        <a href="#idef0">IDEF0</a>
+        <a href="#uml">UML Activity</a>
+        <a href="#dfd">DFD</a>
+    </div>
+
+    <!-- ==================== ARCHIMATE ==================== -->
+    <div id="archimate" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-cubes" style="color:#2563eb"></i></div>
+            <h2>Archimate</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> Archimate — открытый стандарт моделирования архитектуры предприятия. Позволяет описывать взаимосвязи между бизнес-слоем, прикладным и технологическим слоями. Обеспечивает единое представление стратегии, процессов и ИТ-инфраструктуры.</p>
+            <p>Используется для визуализации архитектуры «как есть» и «как будет», анализа зависимостей между подразделениями, приложениями и техническими средствами.</p>
+        </div>
+        <div class="visual-block">
             <div class="archimate-grid">
-                <div class="archimate-title">
-                    <i class="fas fa-layer-group" style="color:#2563eb"></i> Archimate-модель: взаимодействие слоёв
-                </div>
+                <div style="font-weight:700; margin-bottom:16px;"><i class="fas fa-layer-group"></i> Archimate-модель: взаимодействие слоёв (стр. 8 аттестационной работы)</div>
                 <div class="archimate-layers">
                     <div class="layer business-layer">
                         <div class="layer-label"><i class="fas fa-users"></i> Бизнес-слой</div>
@@ -397,138 +382,131 @@
                         </div>
                     </div>
                 </div>
-                <p style="font-size:0.8rem; margin-top:20px; color:#475569;"><i class="fas fa-info-circle"></i> Фрагмент реальной архитектуры из аттестационной работы (стр. 8) — Госкорпорация ТЭК</p>
+                <p style="font-size:0.75rem; margin-top:16px; color:#475569;">Фрагмент реальной архитектуры ИС «Электронный архив проектной продукции»</p>
             </div>
         </div>
-
-        <div class="section">
-            <h2 class="section-title">Декомпозиция процессов</h2>
-            <div class="section-sub">Трёхуровневая модель описания инвестиционно-строительной деятельности</div>
-            
-            <div class="decomp-grid">
-                <div class="decomp-card">
-                    <div class="decomp-level">Уровень 1</div>
-                    <h3>Макропроцессы</h3>
-                    <p>Классическое описание стадий инвестиционно-строительного процесса. Формирование верхнеуровневой карты работ.</p>
-                    <div style="margin-top:16px; background:#f8fafc; padding:12px; border-radius:16px;">
-                        <i class="fas fa-chart-pie"></i> 5-7 ключевых стадий
-                    </div>
-                </div>
-                <div class="decomp-card">
-                    <div class="decomp-level">Уровень 2</div>
-                    <h3>Детализация процессов</h3>
-                    <p>Каждый блок 1-го уровня раскрывается на 10–15 бизнес-процессов с указанием входов/выходов и исполнителей.</p>
-                    <div style="margin-top:16px; background:#f8fafc; padding:12px; border-radius:16px;">
-                        <i class="fas fa-list-ul"></i> 10–15 процессов на стадию
-                    </div>
-                </div>
-                <div class="decomp-card">
-                    <div class="decomp-level">Уровень 3</div>
-                    <h3>EPC-диаграммы</h3>
-                    <p>Детальное описание каждого бизнес-процесса 2-го уровня в нотации EPC (Event-driven Process Chain).</p>
-                    <div style="margin-top:16px; background:#f8fafc; padding:12px; border-radius:16px;">
-                        <i class="fas fa-project-diagram"></i> События → Функции → Результаты
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="notations">
-            <h2 class="section-title">Нотации моделирования</h2>
-            <div class="section-sub">Работа с различными стандартами описания бизнес-процессов</div>
-            
-            <div class="notations-grid">
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>EPC</h4>
-                    <p>Event-driven Process Chain. Использован для 3-го уровня декомпозиции. Наглядная связь событий и функций.</p>
-                </div>
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-cubes"></i></div>
-                    <h4>Archimate</h4>
-                    <p>Применён для анализа ИС «Электронный архив проектной продукции». Многослойная архитектура.</p>
-                </div>
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-diagram-project"></i></div>
-                    <h4>BPMN 2.0</h4>
-                    <p>Стандарт для детального описания процессов с пулами, дорожками и событиями.</p>
-                </div>
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h4>IDEF0</h4>
-                    <p>Функциональное моделирование. Подходит для анализа «как есть» и «как будет».</p>
-                </div>
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-code-branch"></i></div>
-                    <h4>UML Activity</h4>
-                    <p>Алгоритмические потоки управления, параллельные ветви, состояния.</p>
-                </div>
-                <div class="notation-card">
-                    <div class="notation-icon"><i class="fas fa-database"></i></div>
-                    <h4>DFD</h4>
-                    <p>Диаграммы потоков данных. Показывают движение информации между процессами и хранилищами.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="experience">
-            <h2 class="section-title">Реализованные проекты</h2>
-            <div class="section-sub">Опыт внедрения в государственной корпорации — лидере ТЭК</div>
-            
-            <div class="experience-grid">
-                <div class="exp-card">
-                    <i class="fas fa-chart-simple"></i>
-                    <h3>Аудит ИТ-обеспечения</h3>
-                    <p>Проведён анализ существующих ИС по 5 параметрам: архитектура, структуры данных, интеграции, технологии, полнота информации.</p>
-                    <ul class="metrics-list">
-                        <li><i class="fas fa-check-circle"></i> 15+ информационных систем</li>
-                        <li><i class="fas fa-check-circle"></i> Выявлены "разрывы" автоматизации</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>СУИД</h3>
-                    <p>Руководство внедрением. Анализ рынка, выбор решения, разработка ТЗ на два модуля: работа с BIM и электронный документооборот.</p>
-                </div>
-                <div class="exp-card">
-                    <i class="fas fa-grip-vertical"></i>
-                    <h3>Нормативно-справочная информация</h3>
-                    <p>Разработка проектного решения на модуль НСИ. 8 справочников, 62 классификатора. Систематизация ключевых сущностей.</p>
-                </div>
-                <div class="exp-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Геоинформационная система (ГИС)</h3>
-                    <p>Цифровизация процессов проектно-изыскательских работ. Общее руководство мероприятиями.</p>
-                </div>
-            </div>
-
-            <div class="quote-block">
-                <i class="fas fa-quote-left" style="font-size: 2rem; color:#3b82f6; opacity:0.5; margin-bottom:12px; display:block;"></i>
-                <p style="font-size:1.1rem; font-weight:500;">«Описание бизнес-процессов выполнено с трёхуровневой декомпозицией. Для 3-го уровня применены EPC-диаграммы. Анализ ИС проведён с использованием нотации Archimate. Разработаны целевые процессы, определены оптимизации — замена 2 неинтегрированных систем на 1 специализированное ПО.»</p>
-                <p style="margin-top:16px; color:#475569;">— из аттестационной работы, 2021 г.</p>
-            </div>
-
-            <div style="background: #f8fafc; border-radius: 28px; padding: 32px; margin-top: 24px;">
-                <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;">
-                    <div><span style="font-size: 2rem; font-weight:800; color:#1e2a5e;">3</span><br>уровня декомпозиции</div>
-                    <div><span style="font-size: 2rem; font-weight:800; color:#1e2a5e;">10-15</span><br>процессов на уровне 2</div>
-                    <div><span style="font-size: 2rem; font-weight:800; color:#1e2a5e;">6+</span><br>нотаций моделирования</div>
-                    <div><span style="font-size: 2rem; font-weight:800; color:#1e2a5e;">5</span><br>параметров аудита ИС</div>
-                </div>
-            </div>
-        </div>
-
-        <div style="text-align: center; padding: 48px 0 64px;">
-            <a href="request.html" class="btn-primary"><i class="fas fa-pen-alt"></i> Обсудить анализ ваших процессов</a>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Аудит ИТ-обеспечения (Госкорпорация ТЭК):</strong> Проведён анализ 15+ информационных систем по 5 параметрам: архитектура приложений, структуры данных, интеграционное взаимодействие, используемые технологии, полнота информации. Для описания участия ИС «Электронный архив проектной продукции» в производственных процессах применена нотация Archimate. Выявлены «разрывы» автоматизации и неинтегрированные системы.</p>
         </div>
     </div>
-</main>
+
+    <!-- ==================== EPC ==================== -->
+    <div id="epc" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-chart-line" style="color:#10b981"></i></div>
+            <h2>EPC (Event-driven Process Chain)</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> EPC — нотация для описания бизнес-процессов через цепочки событий и функций. Событие инициирует функцию, функция приводит к новому событию. Широко используется в методологии ARIS для детального моделирования процессов.</p>
+            <p>Позволяет наглядно представить последовательность работ, логические операторы (AND/OR/XOR), информационные и материальные потоки.</p>
+        </div>
+        <div class="visual-block">
+            <div style="font-weight:700; margin-bottom:12px;">Опыт: трёхуровневая декомпозиция процессов</div>
+            <div class="decomp-mini">
+                <div class="decomp-mini-item"><strong>Уровень 1</strong><br>Макропроцессы (5-7 стадий)</div>
+                <div class="decomp-mini-item"><strong>Уровень 2</strong><br>Детализация (10-15 процессов на стадию)</div>
+                <div class="decomp-mini-item"><strong>Уровень 3</strong><br>EPC-диаграммы (события → функции → результаты)</div>
+            </div>
+            <p style="margin-top:16px; font-size:0.85rem; color:#475569;">В аттестационной работе каждый бизнес-процесс 2-го уровня детализирован в нотации EPC. Это позволило связать входные события, выполняемые функции и выходные документы.</p>
+        </div>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Описание инвестиционно-строительных процессов:</strong> В рамках создания единого информационного пространства для крупной государственной корпорации ТЭК выполнено описание бизнес-процессов с трёхуровневой декомпозицией. Уровень 3 полностью реализован в EPC-диаграммах, что позволило формализовать более 50 сквозных процессов и подготовить базу для автоматизации.</p>
+        </div>
+    </div>
+
+    <!-- ==================== BPMN 2.0 ==================== -->
+    <div id="bpmn" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-diagram-project" style="color:#2563eb"></i></div>
+            <h2>BPMN 2.0</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> BPMN (Business Process Model and Notation) — международный стандарт моделирования процессов, понятный как бизнес-пользователям, так и ИТ-специалистам. Включает пулы, дорожки, события, шлюзы, задачи и потоки управления.</p>
+            <p>Используется для документирования, анализа и последующей автоматизации процессов (BPM-системы, workflow-движки).</p>
+        </div>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Материал готовится.</strong> Ожидается описание опыта применения BPMN 2.0 в проектах по цифровизации процессов согласования и маршрутизации документации.</p>
+        </div>
+    </div>
+
+    <!-- ==================== IDEF0 ==================== -->
+    <div id="idef0" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-shield-alt" style="color:#eab308"></i></div>
+            <h2>IDEF0</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> IDEF0 — методология функционального моделирования, основанная на графическом описании процессов в виде блоков (функций) и дуг (входы, выходы, механизмы, управление). Позволяет декомпозировать процесс до необходимого уровня детализации.</p>
+            <p>Эффективна для анализа «как есть» и проектирования «как будет» на ранних этапах.</p>
+        </div>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Материал готовится.</strong> Ожидается описание опыта построения функциональных диаграмм IDEF0 для инвестиционной и проектной деятельности.</p>
+        </div>
+    </div>
+
+    <!-- ==================== UML Activity ==================== -->
+    <div id="uml" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-code-branch" style="color:#8b5cf6"></i></div>
+            <h2>UML Activity</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> Диаграмма деятельности UML описывает потоки управления и данных между действиями. Поддерживает параллельные ветви, условия, циклы, отправку и приём сигналов. Близка к блок-схемам, но обладает более богатыми возможностями для моделирования сложной логики.</p>
+            <p>Часто используется при проектировании алгоритмов, workflow и сценариев использования.</p>
+        </div>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Материал готовится.</strong> Ожидается описание опыта моделирования алгоритмов проектно-изыскательских работ и процессов экспертизы.</p>
+        </div>
+    </div>
+
+    <!-- ==================== DFD ==================== -->
+    <div id="dfd" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-database" style="color:#ef4444"></i></div>
+            <h2>DFD (Data Flow Diagrams)</h2>
+        </div>
+        <div class="notation-desc">
+            <p><strong>Что это:</strong> Диаграммы потоков данных показывают движение информации между внешними сущностями, процессами и хранилищами данных. Не фокусируются на временной последовательности, а акцентируют передачу данных.</p>
+            <p>Помогают анализировать информационные связи, выявлять дублирование данных и неэффективные маршруты.</p>
+        </div>
+        <div class="experience-block">
+            <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
+            <p><strong>Материал готовится.</strong> Ожидается описание опыта проектирования потоков данных в рамках модуля НСИ и интеграционных взаимодействий.</p>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; padding: 48px 0 64px;">
+        <a href="request.html" class="btn-primary"><i class="fas fa-pen-alt"></i> Обсудить анализ ваших процессов</a>
+    </div>
+</div>
 
 <footer>
     <div class="container">
         <p>© 2025 ITSIMS — Аналитика, ИИ агенты, оптимизация данных и процессов.</p>
-        <p style="margin-top: 12px; font-size: 0.8rem;">Нотации: EPC, Archimate, BPMN, IDEF0, UML Activity, DFD</p>
+        <p style="margin-top: 12px; font-size: 0.8rem;">Нотации: Archimate • EPC • BPMN 2.0 • IDEF0 • UML Activity • DFD</p>
     </div>
 </footer>
+
+<script>
+    // плавная прокрутка для якорных ссылок
+    document.querySelectorAll('.notation-nav a, .nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (hash && hash.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
