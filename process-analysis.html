@@ -253,6 +253,7 @@
         .business-layer .layer-label { background: #dbeafe; color: #1e40af; }
         .application-layer .layer-label { background: #dcfce7; color: #166534; }
         .technology-layer .layer-label { background: #fef3c7; color: #92400e; }
+        .physical-layer .layer-label { background: #fef3c7; color: #92400e; }
 
         .decomp-mini {
             display: flex;
@@ -352,40 +353,38 @@
         </div>
         <div class="visual-block">
             <div class="archimate-grid">
-                <div style="font-weight:700; margin-bottom:16px;"><i class="fas fa-layer-group"></i> Archimate-модель: взаимодействие слоёв</div>
+                <div style="font-weight:700; margin-bottom:16px;"><i class="fas fa-layer-group"></i> Archimate-модель предприятия</div>
                 <div class="archimate-layers">
                     <div class="layer business-layer">
                         <div class="layer-label"><i class="fas fa-users"></i> Бизнес-слой</div>
                         <div class="layer-content">
-                            <span class="archimate-element">Бизнес-процесс: Экспертиза</span>
-                            <span class="archimate-element">Бизнес-роль: Эксперт</span>
-                            <span class="archimate-element">Бизнес-объект: Проектная продукция</span>
-                            <span class="archimate-element">Бизнес-сервис: Управление процессами</span>
+                            <span class="archimate-element">Бизнес-план</span>
+                            <span class="archimate-element">Модели бизнес-процессов</span>
+                            <span class="archimate-element">Концептуальная модель данных</span>
                         </div>
                     </div>
                     <div class="layer application-layer">
                         <div class="layer-label"><i class="fas fa-code"></i> Прикладной слой</div>
                         <div class="layer-content">
-                            <span class="archimate-element">Электронный архив ПП</span>
-                            <span class="archimate-element">Учетная система</span>
-                            <span class="archimate-element">Сервис хранения ПСД</span>
-                            <span class="archimate-element">Функционал: Хранение и рассмотрение</span>
+                            <span class="archimate-element">Структура процессов</span>
+                            <span class="archimate-element">Архитектура приложений</span>
+                            <span class="archimate-element">Логическая модель данных</span>
                         </div>
                     </div>
                     <div class="layer technology-layer">
                         <div class="layer-label"><i class="fas fa-server"></i> Технологический слой</div>
                         <div class="layer-content">
-                            <span class="archimate-element">ЦОД</span>
-                            <span class="archimate-element">База MS SQL</span>
-                            <span class="archimate-element">Терминальная ферма</span>
-                            <span class="archimate-element">Единая сеть</span>
+                            <span class="archimate-element">Системный проект</span>
+                            <span class="archimate-element">Технологическая архитектура</span>
+                            <span class="archimate-element">Физическая модель данных</span>
                         </div>
                     </div>
                     <div class="layer physical-layer">
                         <div class="layer-label"><i class="fas fa-server"></i> Физический слой</div>
                         <div class="layer-content">
-                            <span class="archimate-element">СТИ</span>
-                            <span class="archimate-element">Сеть</span>
+                            <span class="archimate-element">Cетевая архитектура</span>
+                            <span class="archimate-element">Архитектура ИБ</span>
+                            <span class="archimate-element">Спецификация бизнес-правил</span>
                         </div>
                     </div>
                 </div>
