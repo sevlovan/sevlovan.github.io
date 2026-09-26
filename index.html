@@ -203,37 +203,47 @@
             margin: 0 auto 56px auto;
             font-size: 1.1rem;
         }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 32px;
+        .services-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 920px;
+            margin: 0 auto;
         }
-        .service-card {
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
             background: white;
-            border-radius: 28px;
-            padding: 32px 28px;
-            transition: all 0.25s ease;
+            border-radius: 24px;
+            padding: 24px 28px;
             border: 1px solid #eef2f6;
             box-shadow: 0 8px 20px -6px rgba(0,0,0,0.02);
         }
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-            border-color: #dce3ec;
-        }
         .service-icon {
-            font-size: 2.8rem;
+            flex: 0 0 48px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
             color: #2563eb;
-            margin-bottom: 20px;
+            background: #eff6ff;
+            border-radius: 14px;
         }
-        .service-card h3 {
-            font-size: 1.6rem;
+        .service-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .service-body h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 6px;
         }
-        .service-card p {
+        .service-body p {
             color: #475569;
-            margin-bottom: 24px;
             line-height: 1.5;
         }
         .service-link {
@@ -329,6 +339,8 @@
             .section { padding: 56px 0; }
             .insight-block { padding: 32px 24px; }
             .cta { padding: 48px 24px; }
+            .service-item { flex-wrap: wrap; align-items: flex-start; }
+            .service-link { margin-left: 72px; }
         }
     </style>
 </head>
@@ -381,44 +393,56 @@
         <div class="section">
             <h2 class="section-title">Ключевые направления</h2>
             <div class="section-sub">Комплексная экспертиза — от анализа процессов до внедрения интеллектуальных агентов</div>
-            <div class="services-grid">
-                <div class="service-card">
+            <ul class="services-list">
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Анализ процессов</h3>
-                    <p>Исследование и оптимизация бизнес-процессов для повышения эффективности. Выявляем узкие места, сокращаем издержки.</p>
+                    <div class="service-body">
+                        <h3>Анализ процессов</h3>
+                        <p>Исследование и оптимизация бизнес-процессов для повышения эффективности. Выявляем узкие места, сокращаем издержки.</p>
+                    </div>
                     <a href="process-analysis.html" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
+                </li>
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-database"></i></div>
-                    <h3>Систематизация данных</h3>
-                    <p>Организация и структурирование данных для удобного анализа и использования. Единое окно аналитики.</p>
+                    <div class="service-body">
+                        <h3>Систематизация данных</h3>
+                        <p>Организация и структурирование данных для удобного анализа и использования. Единое окно аналитики.</p>
+                    </div>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
+                </li>
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Интегрированные платформы</h3>
-                    <p>Создание комплексных решений для управления данными и их анализа. Data Mesh, озёра данных, витрины.</p>
+                    <div class="service-body">
+                        <h3>Интегрированные платформы</h3>
+                        <p>Создание комплексных решений для управления данными и их анализа. Data Mesh, озёра данных, витрины.</p>
+                    </div>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
+                </li>
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Разработка приложений</h3>
-                    <p>Создание программных решений, включая использование ИИ-агентов. Кастомные веб- и мобильные приложения.</p>
+                    <div class="service-body">
+                        <h3>Разработка приложений</h3>
+                        <p>Создание программных решений, включая использование ИИ-агентов. Кастомные веб- и мобильные приложения.</p>
+                    </div>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
+                </li>
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Интеграция с ИИ агентами</h3>
-                    <p>Внедрение ИИ технологий в существующие приложения и системы. Автоматизация рутины, умные ассистенты.</p>
+                    <div class="service-body">
+                        <h3>Интеграция с ИИ агентами</h3>
+                        <p>Внедрение ИИ технологий в существующие приложения и системы. Автоматизация рутины, умные ассистенты.</p>
+                    </div>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
+                </li>
+                <li class="service-item">
                     <div class="service-icon"><i class="fas fa-filter"></i></div>
-                    <h3>Оптимизация данных</h3>
-                    <p>Анализ и улучшение качества данных для повышения точности решений. Очистка, обогащение, управление метаданными.</p>
+                    <div class="service-body">
+                        <h3>Оптимизация данных</h3>
+                        <p>Анализ и улучшение качества данных для повышения точности решений. Очистка, обогащение, управление метаданными.</p>
+                    </div>
                     <a href="#" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
 
