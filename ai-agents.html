@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Интеграция с ИИ агентами | ITSIMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e9eef3;
+        }
+
+        header .container {
+            max-width: 1280px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #3b82f6;
+            background: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn-outline-light {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e293b;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline-light:hover {
+            border-color: #3b82f6;
+            background: #f0f4fe;
+        }
+
+        .service-hero {
+            background: linear-gradient(135deg, #1e2a5e 0%, #2d3a6e 100%);
+            padding: 64px 0;
+            color: white;
+        }
+        .service-hero .container {
+            max-width: 1280px;
+        }
+        .service-hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .service-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 720px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+        .breadcrumb a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .groups {
+            padding: 40px 0 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .group {
+            background: white;
+            border-radius: 28px;
+            border: 1px solid #eef2f6;
+            padding: 28px 32px 12px;
+        }
+
+        .group-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .group-title i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 1.05rem;
+            flex: 0 0 40px;
+        }
+
+        .item {
+            padding: 20px 0;
+            border-top: 1px solid #eef2f6;
+        }
+
+        .item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .item p {
+            color: #475569;
+        }
+
+        .example[hidden] {
+            display: none;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 28px 0 72px;
+        }
+
+        .btn-primary {
+            background: #1e2a5e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: #0f1a44;
+        }
+
+        footer {
+            padding: 48px 0 32px;
+            text-align: center;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+        }
+        footer .container {
+            max-width: 1280px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; }
+            .nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+            .service-hero h1 { font-size: 2rem; }
+            .group { padding: 22px 18px 8px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html" class="logo">IT<span>SIMS</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#approach">Подход</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+            <a href="request.html" class="btn-outline-light">Консультация</a>
+        </div>
+    </div>
+</header>
+
+<section class="service-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Главная</a> / <span>Интеграция с ИИ агентами</span>
+        </div>
+        <h1>Интеграция с ИИ агентами</h1>
+        <p>Внедрение интеллектуальных технологий в существующие приложения и системы: от обработки текстов и документов до автоматизации процессов и аналитики.</p>
+    </div>
+</section>
+
+<main>
+    <div class="container groups">
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-brain"></i> Искусственный интеллект и работа с данными</h2>
+            <article class="item">
+                <h3>1. Обработка естественного языка (NLP)</h3>
+                <p>Автоматический анализ, классификация и суммаризация текстов.</p>
+                <p class="example" hidden>Пример: извлечение ключевых требований из технических заданий, протоколов совещаний или нормативных документов.</p>
+            </article>
+            <article class="item">
+                <h3>2. Извлечение данных из неструктурированных источников</h3>
+                <p>Превращение хаотичной информации в структурированные форматы.</p>
+                <p class="example" hidden>Пример: автоматический парсинг и оцифровка данных из сканов смет, актов выполненных работ, PDF-чертежей и рукописных заметок.</p>
+            </article>
+            <article class="item">
+                <h3>3. Интеллектуальные базы знаний и AI-ассистенты</h3>
+                <p>Создание чат-ботов, обученных на внутренних документах компании.</p>
+                <p class="example" hidden>Пример: корпоративный помощник, который мгновенно отвечает инженерам и менеджерам на вопросы по регламентам, методологиям кодирования или стандартам компании.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-cogs"></i> Автоматизация и интеграция процессов</h2>
+            <article class="item">
+                <h3>4. Построение и оркестрация процессов (FlowMaster)</h3>
+                <p>Визуальное моделирование и автоматизация сквозных бизнес-процессов.</p>
+                <p class="example" hidden>Пример: настройка автоматического маршрута согласования изменений в проекте между заказчиком, проектировщиком и подрядчиком без потери данных.</p>
+            </article>
+            <article class="item">
+                <h3>5. Автоматическая сверка документов из разных источников</h3>
+                <p>Кросс-чек данных для исключения человеческих ошибок.</p>
+                <p class="example" hidden>Пример: сравнение проектной документации, исполнительной документации и данных из ERP-системы (например, 1С) на предмет расхождений в объемах или идентификаторах.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-chart-bar"></i> Аналитика и большие данные</h2>
+            <article class="item">
+                <h3>6. Обработка Big Data</h3>
+                <p>Масштабируемые решения для сбора, хранения и анализа массивов данных.</p>
+                <p class="example" hidden>Пример: сквозной мониторинг параметров тысяч объектов строительства в реальном времени с интеграцией данных из IoT-датчиков и учетных систем.</p>
+            </article>
+            <article class="item">
+                <h3>7. Экспертно-аналитические системы</h3>
+                <p>Поддержка принятия решений на основе данных, правил и исторических паттернов.</p>
+                <p class="example" hidden>Пример: прогнозирование рисков срыва сроков или отклонения от сметы на основе анализа исторических данных по аналогичным проектам.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-bullseye"></i> Маркетинг и внешняя аналитика</h2>
+            <article class="item">
+                <h3>8. Системы лояльности и таргетированные предложения</h3>
+                <p>Персонализация взаимодействия на основе анализа поведения.</p>
+                <p class="example" hidden>Пример: формирование индивидуальных коммерческих предложений для подрядчиков и партнеров на основе истории их взаимодействий и потребностей.</p>
+            </article>
+            <article class="item">
+                <h3>9. Сбор данных из соцсетей и сетевой анализ</h3>
+                <p>Мониторинг репутации и анализ связей в открытых источниках.</p>
+                <p class="example" hidden>Пример: анализ настроений вокруг бренда или выявление ключевых игроков, надежных подрядчиков и новых рыночных трендов через анализ графа связей.</p>
+            </article>
+        </section>
+    </div>
+
+    <div class="cta">
+        <a href="request.html" class="btn-primary">Обсудить задачу</a>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ITSIMS — Аналитика, ИИ агенты, оптимизация данных и процессов.</p>
+    </div>
+</footer>
+</body>
+</html>
