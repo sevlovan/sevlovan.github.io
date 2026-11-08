@@ -254,7 +254,18 @@
         .guide-table td:last-child {
             font-weight: 600;
             color: #1e2a5e;
-            white-space: nowrap;
+            white-space: normal;
+        }
+        .guide-section a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .guide-section a:hover {
+            text-decoration: underline;
+        }
+        html[data-theme="dark"] .guide-section a {
+            color: #93c5fd;
         }
         .guide-rules {
             background: #f8fafc;
@@ -725,7 +736,7 @@
     <!-- ==================== ВЫБОР НОТАЦИИ ==================== -->
     <div id="guide" class="guide-section">
         <h2>Какую нотацию выбрать</h2>
-        <p>Ориентир по сектору, масштабу структуры, виду бизнеса и сложности процессов. Часто на одном проекте берут две нотации, а не одну «на все случаи».</p>
+        <p>Ориентир по сектору, масштабу структуры, виду бизнеса и сложности процессов. Часто на одном проекте берут две нотации, а не одну «на все случаи». Когда модель процессов и данных готова к внедрению, результат закрепляет <a href="#dg">Data Governance</a> — роли, смысл, качество и доступ к данным.</p>
         <div class="guide-table-wrap">
             <table class="guide-table">
                 <thead>
@@ -759,6 +770,10 @@
                         <td>Описание процесса + проектирование обмена данными</td>
                         <td>BPMN/EPC + DFD</td>
                     </tr>
+                    <tr>
+                        <td>Нужно удержать эффект оптимизации: владельцы, смысл, качество, доступ к данным</td>
+                        <td>Связка нотаций + Data Governance</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -769,8 +784,9 @@
                 <li>Нужен регламент «как работает бизнес» — <strong>EPC</strong> (или <strong>BPMN</strong>, если уже смотрите в сторону автоматизации).</li>
                 <li>Нужен исполняемый маршрут — <strong>BPMN</strong>.</li>
                 <li>Нужно разобрать данные и интеграции — <strong>DFD</strong>.</li>
+                <li>Модель готова к внедрению и её нужно удержать — <strong>Data Governance</strong>.</li>
             </ol>
-            <p class="guide-note">На одном проекте часто сочетают: Archimate для контура, EPC/BPMN для процессов, DFD для данных.</p>
+            <p class="guide-note">На одном проекте часто сочетают: Archimate для контура, EPC/BPMN для процессов, DFD для данных. Data Governance — не ещё одна нотация, а контур, который закрепляет эту связку в ежедневной работе.</p>
         </div>
     </div>
 
