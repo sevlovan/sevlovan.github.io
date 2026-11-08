@@ -131,33 +131,9 @@
             color: white;
         }
 
-        /* навигация по нотациям */
-        .notation-nav {
-            background: white;
-            border-radius: 60px;
-            padding: 12px 24px;
-            margin: 32px 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            border: 1px solid #eef2f6;
-            position: sticky;
-            top: 80px;
-            z-index: 90;
-            backdrop-filter: blur(4px);
+        .notations {
+            padding-top: 32px;
         }
-        .notation-nav a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #475569;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        .notation-nav a:hover {
-            color: #2563eb;
-        }
-
         .notation-section {
             scroll-margin-top: 100px;
             margin-bottom: 32px;
@@ -445,16 +421,6 @@
             border-color: #60a5fa;
             color: #e2e8f0;
         }
-        html[data-theme="dark"] .notation-nav {
-            background: #111827;
-            border-color: #1e293b;
-        }
-        html[data-theme="dark"] .notation-nav a {
-            color: #cbd5e1;
-        }
-        html[data-theme="dark"] .notation-nav a:hover {
-            color: #93c5fd;
-        }
         html[data-theme="dark"] .notation-section,
         html[data-theme="dark"] .guide-section {
             background: #111827;
@@ -507,7 +473,6 @@
         @media (max-width: 768px) {
             .service-hero h1 { font-size: 2rem; }
             .notation-header h2 { font-size: 1.4rem; }
-            .notation-nav { top: 70px; gap: 16px; }
             .layer-label { width: 110px; font-size: 0.7rem; }
         }
     </style>
@@ -525,6 +490,7 @@
                 <li hidden><a href="#idef0">IDEF0</a></li>
                 <li hidden><a href="#uml">UML</a></li>
                 <li><a href="#dfd">DFD</a></li>
+                <li><a href="#dg">Data Governance</a></li>
                 <li><a href="#guide">Выбор нотации</a></li>
                 <li><a href="request.html">Контакты</a></li>
             </ul>
@@ -546,17 +512,7 @@
     </div>
 </section>
 
-<div class="container">
-    <div class="notation-nav">
-        <a href="#archimate">Archimate</a>
-        <a href="#epc">EPC</a>
-        <a href="#bpmn">BPMN 2.0</a>
-        <a href="#idef0" hidden>IDEF0</a>
-        <a href="#uml" hidden>UML Activity</a>
-        <a href="#dfd">DFD</a>
-        <a href="#guide">Выбор нотации</a>
-    </div>
-
+<div class="container notations">
     <!-- ==================== ARCHIMATE ==================== -->
     <div id="archimate" class="notation-section">
         <div class="notation-header">
@@ -744,6 +700,28 @@
         <!--</div>-->
     </div>
 
+    <!-- ==================== DATA GOVERNANCE ==================== -->
+    <div id="dg" class="notation-section">
+        <div class="notation-header">
+            <div class="notation-icon"><i class="fas fa-sitemap" style="color:#06b6d4"></i></div>
+            <h2>Data Governance</h2>
+        </div>
+        <div class="notation-desc">
+            <p>Data Governance — правила и роли вокруг данных: кто владелец, какой смысл у терминов, какое качество допустимо, кто имеет доступ и как данные живут в жизненном цикле. Это не отдельная «ещё одна нотация», а управленческий контур поверх процессов и систем.</p>
+            <p>После анализа и оптимизации процессов governance закрепляет результат: определения не разъезжаются, дубли не возвращаются, автоматизация и ИИ опираются на доверенные данные. Обычно опирается на связку описаний — процессы (EPC/BPMN), потоки данных (DFD), архитектуру предприятия (Archimate) и словарь/модель данных.</p>
+        </div>
+        <div class="when-block">
+            <h3>Когда применять</h3>
+            <p>Когда нужно не только описать «как есть / как будет», а сделать изменения управляемыми и масштабируемыми.</p>
+            <ul>
+                <li>несколько подразделений и систем с разными «правдами» об одних и тех же сущностях;</li>
+                <li>НСИ, интеграции, аналитика, подготовка к ИИ — без единого смысла данных эффект быстро размывается;</li>
+                <li>после оптимизации процессов нужно закрепить владельцев, качество и доступ к критичным данным.</li>
+            </ul>
+            <p><strong>Не заменяет</strong> моделирование процессов: без EPC/BPMN, DFD и архитектуры governance остаётся политикой без опоры на реальность предприятия.</p>
+        </div>
+    </div>
+
     <!-- ==================== ВЫБОР НОТАЦИИ ==================== -->
     <div id="guide" class="guide-section">
         <h2>Какую нотацию выбрать</h2>
@@ -810,7 +788,7 @@
 
 <script>
     // плавная прокрутка для якорных ссылок
-    document.querySelectorAll('.notation-nav a, .nav-links a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const hash = this.getAttribute('href');
             if (hash && hash.startsWith('#')) {
