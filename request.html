@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Оставить заявку | IT SIMS</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('itsims-theme') === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -207,6 +216,63 @@
             margin-top: 24px;
             font-size: 0.7rem;
             color: #94a3b8;
+        }
+
+        html[data-theme="dark"] body {
+            background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .form-card {
+            background: #111827;
+            border-color: #1e293b;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.55);
+        }
+        html[data-theme="dark"] .back-link {
+            color: #94a3b8;
+        }
+        html[data-theme="dark"] .back-link:hover {
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .sub {
+            color: #94a3b8;
+        }
+        html[data-theme="dark"] label {
+            color: #f8fafc;
+        }
+        html[data-theme="dark"] input,
+        html[data-theme="dark"] textarea {
+            background: #0f172a;
+            border-color: #334155;
+            color: #f8fafc;
+        }
+        html[data-theme="dark"] input::placeholder,
+        html[data-theme="dark"] textarea::placeholder {
+            color: #64748b;
+        }
+        html[data-theme="dark"] input:focus,
+        html[data-theme="dark"] textarea:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+        }
+        html[data-theme="dark"] .note {
+            color: #64748b;
+            border-top-color: #1e293b;
+        }
+        html[data-theme="dark"] .note a {
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .success-message {
+            background: #0c4a6e;
+            border-left-color: #38bdf8;
+            color: #e0f2fe;
+        }
+        html[data-theme="dark"] .error-message {
+            background: #450a0a;
+            border-left-color: #f87171;
+            color: #fecaca;
+        }
+        html[data-theme="dark"] footer {
+            color: #64748b;
         }
 
         @media (max-width: 500px) {
