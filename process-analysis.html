@@ -177,13 +177,128 @@
             padding: 28px 32px;
             background: white;
         }
-        .notation-desc p:last-child {
-            margin-bottom: 0;
-        }
         .notation-desc p {
             color: #334155;
             line-height: 1.6;
             margin-bottom: 16px;
+        }
+        .notation-desc > p:last-child {
+            margin-bottom: 0;
+        }
+        .when-block {
+            margin: 0 32px 28px;
+            padding: 20px 24px;
+            background: #f8fafc;
+            border-radius: 20px;
+            border: 1px solid #eef2f6;
+        }
+        .when-block h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .when-block p {
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .when-block p:last-child {
+            margin-bottom: 0;
+        }
+        .when-block ul {
+            margin: 0 0 10px;
+            padding-left: 18px;
+            color: #334155;
+            line-height: 1.55;
+        }
+        .when-block li {
+            margin-bottom: 6px;
+        }
+        .when-block li:last-child {
+            margin-bottom: 0;
+        }
+        .guide-section {
+            scroll-margin-top: 100px;
+            margin-bottom: 32px;
+            background: white;
+            border-radius: 32px;
+            border: 1px solid #eef2f6;
+            padding: 32px;
+        }
+        .guide-section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .guide-section > p {
+            color: #475569;
+            margin-bottom: 24px;
+            max-width: 720px;
+        }
+        .guide-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 24px;
+            border-radius: 16px;
+            border: 1px solid #eef2f6;
+        }
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+            font-size: 0.95rem;
+        }
+        .guide-table th,
+        .guide-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #eef2f6;
+            vertical-align: top;
+            line-height: 1.45;
+        }
+        .guide-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .guide-table tr:last-child td {
+            border-bottom: none;
+        }
+        .guide-table td:last-child {
+            font-weight: 600;
+            color: #1e2a5e;
+            white-space: nowrap;
+        }
+        .guide-rules {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 20px 24px;
+            border: 1px solid #eef2f6;
+        }
+        .guide-rules h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        .guide-rules ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #334155;
+            line-height: 1.55;
+        }
+        .guide-rules li {
+            margin-bottom: 8px;
+        }
+        .guide-rules li:last-child {
+            margin-bottom: 0;
+        }
+        .guide-note {
+            margin-top: 12px;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.55;
         }
         .experience-block {
             background: #f1f5f9;
@@ -317,6 +432,7 @@
                 <li hidden><a href="#idef0">IDEF0</a></li>
                 <li hidden><a href="#uml">UML</a></li>
                 <li><a href="#dfd">DFD</a></li>
+                <li><a href="#guide">Выбор нотации</a></li>
                 <li><a href="request.html">Контакты</a></li>
             </ul>
             <a href="request.html" class="back-link"><i class="fas fa-paper-plane"></i> Заявка</a>
@@ -342,6 +458,7 @@
         <a href="#idef0" hidden>IDEF0</a>
         <a href="#uml" hidden>UML Activity</a>
         <a href="#dfd">DFD</a>
+        <a href="#guide">Выбор нотации</a>
     </div>
 
     <!-- ==================== ARCHIMATE ==================== -->
@@ -353,6 +470,16 @@
         <div class="notation-desc">
             <p>Archimate — открытый стандарт моделирования архитектуры предприятия. Позволяет описывать взаимосвязи между бизнес-слоем, прикладным и технологическим слоями. Обеспечивает единое представление стратегии, процессов и ИТ-инфраструктуры.</p>
             <p>Используется для визуализации архитектуры «как есть» и «как будет», анализа зависимостей между подразделениями, приложениями и техническими средствами.</p>
+        </div>
+        <div class="when-block">
+            <h3>Когда применять</h3>
+            <p>Крупное предприятие или холдинг; много подразделений и ИТ-систем; нужна связка «стратегия → процессы → приложения → инфраструктура».</p>
+            <ul>
+                <li>сектор с плотной ИТ-зависимостью (ТЭК, промышленность, финансы, госсектор с цифровыми платформами);</li>
+                <li>10+ систем / несколько организаций в контуре;</li>
+                <li>цель — целевая архитектура, аудит ландшафта, дорожная карта трансформации, а не пошаговый регламент цеха.</li>
+            </ul>
+            <p><strong>Не лучший выбор,</strong> если нужно только описать один операционный процесс «кто что делает».</p>
         </div>
         <div class="visual-block" hidden>
             <div class="archimate-grid">
@@ -410,6 +537,16 @@
             <p>EPC — нотация для описания бизнес-процессов через цепочки событий и функций. Событие инициирует функцию, функция приводит к новому событию. Широко используется в методологии ARIS для детального моделирования процессов.</p>
             <p>Позволяет наглядно представить последовательность работ, логические операторы (AND/OR/XOR), информационные и материальные потоки.</p>
         </div>
+        <div class="when-block">
+            <h3>Когда применять</h3>
+            <p>Детальное описание бизнес-логики «событие → функция → результат»; методологии в духе ARIS; регламенты и сквозные цепочки без обязательной привязки к исполнению в BPM.</p>
+            <ul>
+                <li>производство, строительство, инвестпроекты, корпоративные сквозные процессы;</li>
+                <li>несколько уровней декомпозиции (макропроцесс → процессы → детальные цепочки);</li>
+                <li>много ролей, документов, условных ветвлений на уровне «как устроен бизнес».</li>
+            </ul>
+            <p><strong>Слабее,</strong> если сразу нужна автоматизация в workflow/BPM-системе — тогда чаще удобнее BPMN.</p>
+        </div>
         <div class="visual-block" hidden>
             <div style="font-weight:700; margin-bottom:12px;">Опыт: трёхуровневая декомпозиция процессов</div>
             <div class="decomp-mini">
@@ -433,6 +570,16 @@
         <div class="notation-desc">
             <p>BPMN (Business Process Model and Notation) — международный стандарт моделирования процессов, понятный как бизнес-пользователям, так и ИТ-специалистам. Включает пулы, дорожки, события, шлюзы, задачи и потоки управления.</p>
             <p>Используется для документирования, анализа и последующей автоматизации процессов (BPM-системы, workflow-движки).</p>
+        </div>
+        <div class="when-block">
+            <h3>Когда применять</h3>
+            <p>Процессы с исполнением в ИТ (согласования, заявки, маршруты); общий язык бизнеса и ИТ; подготовка к BPM / workflow / RPA.</p>
+            <ul>
+                <li>сервисный, административный, ИТ- и документооборотный контур;</li>
+                <li>явные дорожки (роли/подразделения), шлюзы, таймеры, эскалации;</li>
+                <li>цель — унификация и тиражирование маршрутов (в т.ч. на дочерние общества).</li>
+            </ul>
+            <p><strong>Избыточна,</strong> если моделируете только архитектуру предприятия или только потоки данных без логики исполнения.</p>
         </div>
         <div class="experience-block" hidden>
             <h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>
@@ -485,10 +632,72 @@
             <p>Диаграммы потоков данных показывают движение информации между внешними сущностями, процессами и хранилищами данных. Не фокусируются на временной последовательности, а акцентируют передачу данных.</p>
             <p>Помогают анализировать информационные связи, выявлять дублирование данных и неэффективные маршруты.</p>
         </div>
+        <div class="when-block">
+            <h3>Когда применять</h3>
+            <p>Анализ информационных потоков: откуда данные, куда уходят, где хранятся, где дублируются.</p>
+            <ul>
+                <li>внедрение/пересборка ИС, НСИ, интеграций, аналитики;</li>
+                <li>вопрос «какие данные циркулируют», а не «в каком порядке выполняются шаги»;</li>
+                <li>поиск разрывов и лишних передач между подразделениями/системами.</li>
+            </ul>
+            <p><strong>Не заменяет</strong> EPC/BPMN, если нужна последовательность работ и ответственность ролей.</p>
+        </div>
         <!--<div class="experience-block">-->
             <!--<h3><i class="fas fa-briefcase"></i> Реализованный проект</h3>-->
             <!--<p><strong>Материал готовится.</strong> Ожидается описание опыта проектирования потоков данных в рамках модуля НСИ и интеграционных взаимодействий.</p>-->
         <!--</div>-->
+    </div>
+
+    <!-- ==================== ВЫБОР НОТАЦИИ ==================== -->
+    <div id="guide" class="guide-section">
+        <h2>Какую нотацию выбрать</h2>
+        <p>Ориентир по сектору, масштабу структуры, виду бизнеса и сложности процессов. Часто на одном проекте берут две нотации, а не одну «на все случаи».</p>
+        <div class="guide-table-wrap">
+            <table class="guide-table">
+                <thead>
+                    <tr>
+                        <th>Ситуация предприятия</th>
+                        <th>Предпочтительная нотация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Холдинг / много ИС / «как есть → как будет» на уровне архитектуры</td>
+                        <td>Archimate</td>
+                    </tr>
+                    <tr>
+                        <td>Сложные сквозные бизнес-процессы, регламенты, многоуровневая декомпозиция</td>
+                        <td>EPC</td>
+                    </tr>
+                    <tr>
+                        <td>Процессы под автоматизацию, согласования, единый язык с ИТ</td>
+                        <td>BPMN 2.0</td>
+                    </tr>
+                    <tr>
+                        <td>Интеграции, НСИ, дублирование и маршруты данных</td>
+                        <td>DFD</td>
+                    </tr>
+                    <tr>
+                        <td>Архитектура + потом детализация процессов</td>
+                        <td>Archimate → EPC или BPMN</td>
+                    </tr>
+                    <tr>
+                        <td>Описание процесса + проектирование обмена данными</td>
+                        <td>BPMN/EPC + DFD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="guide-rules">
+            <h3>Практическое правило</h3>
+            <ol>
+                <li>Нужна карта предприятия и ИТ — <strong>Archimate</strong>.</li>
+                <li>Нужен регламент «как работает бизнес» — <strong>EPC</strong> (или <strong>BPMN</strong>, если уже смотрите в сторону автоматизации).</li>
+                <li>Нужен исполняемый маршрут — <strong>BPMN</strong>.</li>
+                <li>Нужно разобрать данные и интеграции — <strong>DFD</strong>.</li>
+            </ol>
+            <p class="guide-note">На одном проекте часто сочетают: Archimate для контура, EPC/BPMN для процессов, DFD для данных.</p>
+        </div>
     </div>
 
     <!-- CTA -->
