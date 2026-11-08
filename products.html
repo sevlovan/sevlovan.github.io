@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Наши продукты | ITSIMS</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('itsims-theme') === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e9eef3;
+        }
+        header .container { max-width: 1280px; }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        .logo span { color: #3b82f6; background: none; }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover { color: #2563eb; }
+
+        .btn-outline-light {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e293b;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline-light:hover {
+            border-color: #3b82f6;
+            background: #f0f4fe;
+        }
+
+        .service-hero {
+            background: linear-gradient(135deg, #1e2a5e 0%, #2d3a6e 100%);
+            padding: 64px 0;
+            color: white;
+        }
+        .service-hero .container { max-width: 1280px; }
+        .service-hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .service-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 760px;
+        }
+
+        .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; }
+        .breadcrumb a { color: #cbd5e1; text-decoration: none; }
+        .breadcrumb a:hover { color: white; }
+
+        .product-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 28px 0 8px;
+        }
+        .product-nav a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e2a5e;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            padding: 8px 16px;
+        }
+        .product-nav a:hover {
+            border-color: #3b82f6;
+            color: #2563eb;
+        }
+
+        .product {
+            scroll-margin-top: 100px;
+            background: white;
+            border-radius: 28px;
+            border: 1px solid #eef2f6;
+            padding: 28px 32px 24px;
+            margin-bottom: 28px;
+        }
+        .product-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex: 0 0 48px;
+        }
+        .product-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .product-tag {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .product > p {
+            color: #475569;
+            margin-bottom: 12px;
+        }
+        .product > p:last-of-type { margin-bottom: 0; }
+
+        .feature-list {
+            list-style: none;
+            margin: 18px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .feature-list li {
+            display: flex;
+            gap: 10px;
+            color: #334155;
+            line-height: 1.45;
+        }
+        .feature-list i {
+            color: #2563eb;
+            margin-top: 3px;
+            flex: 0 0 auto;
+        }
+
+        .note-block {
+            margin-top: 18px;
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            border-radius: 18px;
+            padding: 16px 18px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .note-block strong { color: #0f172a; }
+
+        .product-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .btn-primary {
+            background: #1e2a5e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover { background: #0f1a44; }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-secondary:hover {
+            border-color: #3b82f6;
+            background: #f8fafc;
+        }
+
+        .bridge {
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+        }
+        .bridge h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .bridge p { color: #475569; }
+
+        .cta {
+            text-align: center;
+            padding: 12px 0 72px;
+        }
+
+        footer {
+            padding: 48px 0 32px;
+            text-align: center;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+        }
+        footer .container { max-width: 1280px; }
+
+        html[data-theme="dark"] body { background: #0b1220; color: #e2e8f0; }
+        html[data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.92);
+            border-bottom-color: #1e293b;
+            box-shadow: none;
+        }
+        html[data-theme="dark"] .nav-links a { color: #cbd5e1; }
+        html[data-theme="dark"] .nav-links a:hover { color: #93c5fd; }
+        html[data-theme="dark"] .btn-outline-light,
+        html[data-theme="dark"] .btn-secondary {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .btn-outline-light:hover,
+        html[data-theme="dark"] .btn-secondary:hover {
+            border-color: #60a5fa;
+            background: #243247;
+        }
+        html[data-theme="dark"] .product,
+        html[data-theme="dark"] .bridge {
+            background: #111827;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .bridge { background: #0f172a; }
+        html[data-theme="dark"] .product-header h2,
+        html[data-theme="dark"] .bridge h2,
+        html[data-theme="dark"] .note-block strong { color: #f8fafc; }
+        html[data-theme="dark"] .product-tag { color: #94a3b8; }
+        html[data-theme="dark"] .product > p,
+        html[data-theme="dark"] .feature-list li,
+        html[data-theme="dark"] .bridge p,
+        html[data-theme="dark"] .note-block { color: #94a3b8; }
+        html[data-theme="dark"] .product-icon {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .product-nav a {
+            background: #111827;
+            border-color: #1e293b;
+            color: #cbd5e1;
+        }
+        html[data-theme="dark"] .note-block {
+            background: #0f172a;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] footer {
+            border-top-color: #1e293b;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; }
+            .nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+            .service-hero h1 { font-size: 2rem; }
+            .product, .bridge { padding: 22px 18px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html" class="logo">IT<span>SIMS</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="products.html">Продукты</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" aria-label="Включить тёмную тему"><i class="fas fa-moon"></i></button>
+                <a href="request.html" class="btn-outline-light">Консультация</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="service-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Главная</a> / <span>Наши продукты</span>
+        </div>
+        <h1>Наши продукты</h1>
+        <p>Инструменты ITSIMS: от черновика процесса из регламента до корпоративной онтологии бизнес-объектов. Разрабатываем сами — внедряем в контур заказчика.</p>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <div class="product-nav">
+            <a href="#cimbo">CIMBO — онтология</a>
+            <a href="#magvai">Редактор процессов</a>
+        </div>
+
+        <section id="cimbo" class="product">
+            <div class="product-header">
+                <div class="product-icon"><i class="fas fa-project-diagram"></i></div>
+                <div>
+                    <h2>CIMBO</h2>
+                    <div class="product-tag">Онтология бизнес-объектов · корпоративная информационная модель</div>
+                </div>
+            </div>
+            <p>CIMBO — инструмент для формирования корпоративной структуры бизнес-объектов: элементы иерархии, методология их поведения и единого сквозного кодирования данных. Это основа автоматизации и цифровой трансформации в любой организации.</p>
+            <p>Текущее наполнение может отражать капитальное строительство, сам продукт отраслево-нейтрален: воспроизводится структура данных, правила связей и кодирования под контур заказчика.</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> Элементы иерархии и объекты информационной модели — с атрибутами, ЕСК и составом</li>
+                <li><i class="fas fa-check"></i> Структуры и процессы: деревья узлов, варианты, потоки, системы-источники и потребители</li>
+                <li><i class="fas fa-check"></i> Реестр информационных систем и функциональная архитектура</li>
+                <li><i class="fas fa-check"></i> НСИ, классификаторы и деловые отчёты (методология, структура, архитектура)</li>
+            </ul>
+            <div class="note-block">
+                <strong>Зачем:</strong> единая «правда» об объектах, кодах и связях процессов с системами — не слайд и не набор разрозненных Excel.
+            </div>
+            <div class="product-actions">
+                <a href="request.html" class="btn-primary"><i class="fas fa-comments"></i> Обсудить внедрение CIMBO</a>
+                <a href="process-analysis.html" class="btn-secondary">Связь с анализом процессов</a>
+            </div>
+        </section>
+
+        <section id="magvai" class="product">
+            <div class="product-header">
+                <div class="product-icon"><i class="fas fa-diagram-project"></i></div>
+                <div>
+                    <h2>Редактор процессов</h2>
+                    <div class="product-tag">AI-черновик BPMN из регламента · Magvai</div>
+                </div>
+            </div>
+            <p>Редактор диаграмм для аналитиков: загружаете регламент Word, PDF или Excel — даже на десятки страниц, в том числе скан в PDF — и примерно за минуту получаете черновик процесса в BPMN: участники по дорожкам, шаги по порядку, развилки с условиями.</p>
+            <p>Доводка руками нужна, но по ощущениям порядка 80% схемы уже на месте. Доработать черновик быстрее, чем полдня рисовать с нуля. Качество проверяется на реальных регламентах и постоянно совершенствуется.</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> Регламент целиком, а не кусок текста на пару страниц</li>
+                <li><i class="fas fa-check"></i> Перед моделью вырезаются телефоны, почты, СНИЛС, ИНН и паспортные данные</li>
+                <li><i class="fas fa-check"></i> Ручная доработка, проверка по правилам BPMN, выгрузка в BPMN XML, PDF или картинку</li>
+                <li><i class="fas fa-check"></i> Ссылка коллегам с комментариями прямо на схеме</li>
+                <li><i class="fas fa-check"></i> Сейчас BPMN и блок-схемы; в планах EPC, UML и командная работа</li>
+            </ul>
+            <div class="note-block">
+                <strong>Под капотом:</strong> YandexGPT и Qwen в Яндекс Облаке. Нейросеть — примерно четверть работы: основное — нарезать документ, отделить процесс от «воды» и разложить схему без пересечений. В запросах модели запрещено хранить документы и учиться на них.<br><br>
+                <strong>Старт:</strong> первый документ бесплатно, плюс 10 AI-запросов в месяц. Вход — почта и пароль.
+            </div>
+            <div class="product-actions">
+                <a href="https://magvai.com/?from=itsims" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fas fa-external-link-alt"></i> Открыть редактор</a>
+                <a href="request.html" class="btn-secondary">Обсудить для компании</a>
+            </div>
+        </section>
+
+        <section class="bridge">
+            <h2>Как продукты работают вместе</h2>
+            <p>Редактор процессов ускоряет описание «как есть / как должно быть» из живых регламентов. CIMBO закрепляет объекты, иерархию, кодирование и связь с системами в корпоративном контуре. Услуги ITSIMS — анализ, данные, заказная разработка и ИИ — подключаются, когда нужен проект внедрения или решение под ваш ландшафт.</p>
+        </section>
+
+        <div class="cta">
+            <a href="request.html" class="btn-primary"><i class="fas fa-paper-plane"></i> Заявка на продукты ITSIMS</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ITSIMS — Аналитика, ИИ агенты, оптимизация данных и процессов.</p>
+    </div>
+</footer>
+<script src="theme.js"></script>
+</body>
+</html>

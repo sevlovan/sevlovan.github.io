@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Разработка и внедрение приложений | ITSIMS</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('itsims-theme') === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e9eef3;
+        }
+        header .container { max-width: 1280px; }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        .logo span { color: #3b82f6; background: none; }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover { color: #2563eb; }
+
+        .btn-outline-light {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e293b;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline-light:hover {
+            border-color: #3b82f6;
+            background: #f0f4fe;
+        }
+
+        .service-hero {
+            background: linear-gradient(135deg, #1e2a5e 0%, #2d3a6e 100%);
+            padding: 64px 0;
+            color: white;
+        }
+        .service-hero .container { max-width: 1280px; }
+        .service-hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .service-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 760px;
+        }
+
+        .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; }
+        .breadcrumb a { color: #cbd5e1; text-decoration: none; }
+        .breadcrumb a:hover { color: white; }
+
+        .groups {
+            padding: 40px 0 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .group {
+            background: white;
+            border-radius: 28px;
+            border: 1px solid #eef2f6;
+            padding: 28px 32px 12px;
+        }
+
+        .group-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .group-title i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 1.05rem;
+            flex: 0 0 40px;
+        }
+
+        .item {
+            padding: 20px 0;
+            border-top: 1px solid #eef2f6;
+        }
+        .item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+        .item p { color: #475569; }
+        .products-link {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .products-link:hover { text-decoration: underline; }
+        html[data-theme="dark"] .products-link { color: #93c5fd; }
+
+        .steps {
+            margin: 8px 0 16px;
+            padding-left: 20px;
+            color: #475569;
+        }
+        .steps li { margin-bottom: 8px; }
+
+        .cta {
+            text-align: center;
+            padding: 28px 0 72px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: #1e2a5e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: #0f1a44; }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            border-color: #3b82f6;
+            background: #f8fafc;
+        }
+
+        footer {
+            padding: 48px 0 32px;
+            text-align: center;
+            color: #5b6e8c;
+            border-top: 1px solid #e2e8f0;
+        }
+        footer .container { max-width: 1280px; }
+
+        html[data-theme="dark"] body { background: #0b1220; color: #e2e8f0; }
+        html[data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.92);
+            border-bottom-color: #1e293b;
+            box-shadow: none;
+        }
+        html[data-theme="dark"] .nav-links a { color: #cbd5e1; }
+        html[data-theme="dark"] .nav-links a:hover { color: #93c5fd; }
+        html[data-theme="dark"] .btn-outline-light,
+        html[data-theme="dark"] .btn-secondary {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .btn-outline-light:hover,
+        html[data-theme="dark"] .btn-secondary:hover {
+            border-color: #60a5fa;
+            background: #243247;
+        }
+        html[data-theme="dark"] .group {
+            background: #111827;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .group-title,
+        html[data-theme="dark"] .item h3 { color: #f8fafc; }
+        html[data-theme="dark"] .group-title i {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .item { border-top-color: #1e293b; }
+        html[data-theme="dark"] .item p,
+        html[data-theme="dark"] .steps { color: #94a3b8; }
+        html[data-theme="dark"] footer {
+            border-top-color: #1e293b;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; }
+            .nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+            .service-hero h1 { font-size: 2rem; }
+            .group { padding: 22px 18px 8px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html" class="logo">IT<span>SIMS</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="products.html">Продукты</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" aria-label="Включить тёмную тему"><i class="fas fa-moon"></i></button>
+                <a href="request.html" class="btn-outline-light">Консультация</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="service-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Главная</a> / <span>Разработка и внедрение</span>
+        </div>
+        <h1>Разработка и внедрение приложений</h1>
+        <p>От модели процесса и данных — к рабочему инструменту в ежедневной эксплуатации. Прикладные решения под контур предприятия: роли, реестры, НСИ, интеграции — не «приложение ради экранов».</p>
+    </div>
+</section>
+
+<main>
+    <div class="container groups">
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-code"></i> Что делаем</h2>
+            <article class="item">
+                <h3>Прикладные системы и модули</h3>
+                <p>Реестры, кабинеты, контуры учёта инженерных и проектных данных, модули НСИ, поддержка сквозного кодирования в информационной модели.</p>
+            </article>
+            <article class="item">
+                <h3>Интеграции</h3>
+                <p>Связка систем в сквозной процесс: обмен данными, контроль целостности идентификаторов и статусов, меньше ручных переносов.</p>
+            </article>
+            <article class="item">
+                <h3>Внедрение, а не только разработка</h3>
+                <p>Требования и MVP, поэтапный ввод, риски внедрения, обучение и сопровождение до устойчивой эксплуатации.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-route"></i> Как работаем</h2>
+            <article class="item">
+                <ol class="steps">
+                    <li>Фиксируем цель и границы: какой процесс автоматизируем, какие данные — источник истины.</li>
+                    <li>Согласуем роли, сценарии, сущности и правила кодирования/качества.</li>
+                    <li>Собираем MVP на критичном сценарии.</li>
+                    <li>Подключаем интеграции и смежные контуры.</li>
+                    <li>Вводим в эксплуатацию поэтапно и наращиваем функции.</li>
+                </ol>
+                <p>Не начинаем с выбора стека: сначала ясность процесса и данных, потом архитектура решения.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-briefcase"></i> Опыт практики</h2>
+            <article class="item">
+                <p>В промышленных и инвестстроительных контурах реализованы решения, где приложение — часть методологии:</p>
+            </article>
+            <article class="item">
+                <h3>Инженерные данные и НСИ</h3>
+                <p>Система управления инженерными данными; модуль нормативно-справочной информации на согласованной модели данных.</p>
+            </article>
+            <article class="item">
+                <h3>Сквозное кодирование и интеграции</h3>
+                <p>Методология сквозного кодирования в информационной модели объекта капитального строительства и интеграционные решения для сквозного процесса информационного моделирования.</p>
+            </article>
+            <article class="item">
+                <h3>Постановка и внедрение</h3>
+                <p>Управление требованиями, работа с распределёнными командами разработки, выбор и внедрение платформ под задачу — не под моду.</p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-cubes"></i> Свои продукты ITSIMS</h2>
+            <article class="item">
+                <h3>CIMBO и редактор процессов</h3>
+                <p>Помимо заказной разработки развиваем собственные инструменты: онтологию бизнес-объектов CIMBO и AI-редактор процессов для черновиков BPMN из регламентов. Часто они входят в контур внедрения или задают эталон модели.</p>
+            </article>
+            <article class="item">
+                <p><a href="products.html" class="products-link">Смотреть наши продукты →</a></p>
+            </article>
+        </section>
+
+        <section class="group">
+            <h2 class="group-title"><i class="fas fa-balance-scale"></i> Когда заказывать — и когда нет</h2>
+            <article class="item">
+                <h3>Подходит, если</h3>
+                <p>Есть понимание целевого процесса; нужна система под отраслевую специфику; критичны НСИ, кодирование, инженерные или проектные данные; требуется интеграция в живой ИТ-ландшафт.</p>
+            </article>
+            <article class="item">
+                <h3>Лучше начать с другого шага</h3>
+                <p>Нет согласия «как должно быть» в процессе или нет владельцев ключевых сущностей данных — сначала анализ процессов и Data Governance. Иначе приложение закрепит текущий хаос.</p>
+            </article>
+        </section>
+    </div>
+
+    <div class="cta">
+        <a href="request.html" class="btn-primary">Обсудить задачу на разработку</a>
+        <a href="products.html" class="btn-secondary">Наши продукты</a>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ITSIMS — Аналитика, ИИ агенты, оптимизация данных и процессов.</p>
+    </div>
+</footer>
+<script src="theme.js"></script>
+</body>
+</html>
