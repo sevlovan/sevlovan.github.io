@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Интеграция с ИИ агентами | ITSIMS</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('itsims-theme') === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
     <style>
         * {
             margin: 0;
@@ -213,6 +223,53 @@
             max-width: 1280px;
         }
 
+        html[data-theme="dark"] body {
+            background: #0b1220;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.92);
+            border-bottom-color: #1e293b;
+            box-shadow: none;
+        }
+        html[data-theme="dark"] .nav-links a {
+            color: #cbd5e1;
+        }
+        html[data-theme="dark"] .nav-links a:hover {
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .btn-outline-light {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .btn-outline-light:hover {
+            border-color: #60a5fa;
+            background: #243247;
+        }
+        html[data-theme="dark"] .group {
+            background: #111827;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .group-title,
+        html[data-theme="dark"] .item h3 {
+            color: #f8fafc;
+        }
+        html[data-theme="dark"] .group-title i {
+            background: #1e3a5f;
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .item {
+            border-top-color: #1e293b;
+        }
+        html[data-theme="dark"] .item p {
+            color: #94a3b8;
+        }
+        html[data-theme="dark"] footer {
+            border-top-color: #1e293b;
+            color: #64748b;
+        }
+
         @media (max-width: 768px) {
             .navbar { flex-direction: column; }
             .nav-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
@@ -232,7 +289,10 @@
                 <li><a href="index.html#approach">Подход</a></li>
                 <li><a href="index.html#contact">Контакты</a></li>
             </ul>
-            <a href="request.html" class="btn-outline-light">Консультация</a>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" aria-label="Включить тёмную тему"><i class="fas fa-moon"></i></button>
+                <a href="request.html" class="btn-outline-light">Консультация</a>
+            </div>
         </div>
     </div>
 </header>
@@ -328,5 +388,6 @@
         <p>© 2025 ITSIMS — Аналитика, ИИ агенты, оптимизация данных и процессов.</p>
     </div>
 </footer>
+<script src="theme.js"></script>
 </body>
 </html>

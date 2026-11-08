@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Анализ процессов | ITSIMS</title>
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('itsims-theme') === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
     <style>
         * {
             margin: 0;
@@ -411,6 +421,89 @@
             border-top: 1px solid #e2e8f0;
         }
 
+        html[data-theme="dark"] body {
+            background: #0b1220;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] header {
+            background: rgba(15, 23, 42, 0.92);
+            border-bottom-color: #1e293b;
+            box-shadow: none;
+        }
+        html[data-theme="dark"] .nav-links a {
+            color: #cbd5e1;
+        }
+        html[data-theme="dark"] .nav-links a:hover {
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .back-link {
+            background: #1e293b;
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+        html[data-theme="dark"] .back-link:hover {
+            border-color: #60a5fa;
+            color: #e2e8f0;
+        }
+        html[data-theme="dark"] .notation-nav {
+            background: #111827;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .notation-nav a {
+            color: #cbd5e1;
+        }
+        html[data-theme="dark"] .notation-nav a:hover {
+            color: #93c5fd;
+        }
+        html[data-theme="dark"] .notation-section,
+        html[data-theme="dark"] .guide-section {
+            background: #111827;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .notation-header {
+            background: #0f172a;
+            border-bottom-color: #1e293b;
+        }
+        html[data-theme="dark"] .notation-header h2,
+        html[data-theme="dark"] .guide-section h2,
+        html[data-theme="dark"] .when-block h3,
+        html[data-theme="dark"] .guide-rules h3,
+        html[data-theme="dark"] .guide-table th,
+        html[data-theme="dark"] .guide-table td:last-child {
+            color: #f8fafc;
+        }
+        html[data-theme="dark"] .notation-desc {
+            background: #111827;
+        }
+        html[data-theme="dark"] .notation-desc p,
+        html[data-theme="dark"] .when-block p,
+        html[data-theme="dark"] .when-block ul,
+        html[data-theme="dark"] .guide-section > p,
+        html[data-theme="dark"] .guide-table td,
+        html[data-theme="dark"] .guide-rules ol,
+        html[data-theme="dark"] .guide-note {
+            color: #94a3b8;
+        }
+        html[data-theme="dark"] .when-block,
+        html[data-theme="dark"] .guide-rules {
+            background: #0f172a;
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .guide-table-wrap {
+            border-color: #1e293b;
+        }
+        html[data-theme="dark"] .guide-table th,
+        html[data-theme="dark"] .guide-table td {
+            border-bottom-color: #1e293b;
+        }
+        html[data-theme="dark"] .guide-table th {
+            background: #0f172a;
+        }
+        html[data-theme="dark"] footer {
+            border-top-color: #1e293b;
+            color: #64748b;
+        }
+
         @media (max-width: 768px) {
             .service-hero h1 { font-size: 2rem; }
             .notation-header h2 { font-size: 1.4rem; }
@@ -435,7 +528,10 @@
                 <li><a href="#guide">Выбор нотации</a></li>
                 <li><a href="request.html">Контакты</a></li>
             </ul>
-            <a href="request.html" class="back-link"><i class="fas fa-paper-plane"></i> Заявка</a>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" aria-label="Включить тёмную тему"><i class="fas fa-moon"></i></button>
+                <a href="request.html" class="back-link"><i class="fas fa-paper-plane"></i> Заявка</a>
+            </div>
         </div>
     </div>
 </header>
@@ -727,5 +823,6 @@
         });
     });
 </script>
+<script src="theme.js"></script>
 </body>
 </html>
