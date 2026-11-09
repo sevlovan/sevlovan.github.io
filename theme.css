@@ -38,3 +38,11 @@ html[data-theme="dark"] .theme-toggle:hover {
     background: #243247;
     color: #f8fafc;
 }
+
+/* IT в логотипе: на тёмном фоне светлее navy, иначе теряется */
+html[data-theme="dark"] .logo {
+    background: linear-gradient(135deg, #a8b4e0, #c5cef0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

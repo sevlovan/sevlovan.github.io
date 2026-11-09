@@ -8,6 +8,7 @@
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
     <style>
         * {
             margin: 0;
@@ -213,6 +214,12 @@
         html[data-theme="dark"] body {
             background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
             color: #e2e8f0;
+        }
+        html[data-theme="dark"] h1 {
+            background: linear-gradient(135deg, #a8b4e0, #c5cef0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
         html[data-theme="dark"] .form-card {
             background: #111827;
